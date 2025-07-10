@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="p-6">
+        <h1 class="text-2xl font-bold mb-4">IMS-CIA Admin Dashboard</h1>
+        <a href="/logout" class="text-blue-600 underline">Logout</a>
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Scan Logs</h2>
+            <table class="min-w-full bg-white shadow rounded">
+                <thead>
+                    <tr class="bg-gray-100 text-left text-sm font-semibold">
+                        <th class="p-2">Target</th>
+                        <th class="p-2">Type</th>
+                        <th class="p-2">Result</th>
+                        <th class="p-2">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr class="border-t">
+                        <td class="p-2">{{ log.target }}</td>
+                        <td class="p-2">{{ log.type }}</td>
+                        <td class="p-2">{{ log.result }}</td>
+                        <td class="p-2">{{ log.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4">
+            <a href="/export" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Export CSV</a>
+            <a href="/apikeys" class="ml-4 inline-block bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Manage API Keys</a>
+        </div>
+    </div>
+</body>
+</html>
+<!-- This is the admin dashboard for the IMS-CIA interface. It displays scan logs and provides options to export data and manage API keys. -->
+<!-- The dashboard uses Tailwind CSS for styling and is designed to be responsive and user-friendly.

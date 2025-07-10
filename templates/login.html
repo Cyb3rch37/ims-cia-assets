@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IMS-CIA Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <form method="POST" class="bg-white p-8 rounded shadow-md w-full max-w-sm">
+        <h2 class="text-xl font-bold mb-6 text-center">Admin Login</h2>
+        <label class="block mb-2 text-sm font-medium">Username</label>
+        <input type="text" name="username" class="w-full mb-4 px-3 py-2 border rounded" required>
+        <label class="block mb-2 text-sm font-medium">Password</label>
+        <input type="password" name="password" class="w-full mb-4 px-3 py-2 border rounded" required>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+    </form>
+</body>
+</html>
+<!-- This is the login page for the IMS-CIA Admin interface. It uses Tailwind CSS for styling and includes a simple form for username and password input. -->
+<!-- The form submits a POST request to the server for authentication. -->
+<!-- Ensure that the server-side code handles the login logic and redirects appropriately after successful login. -->
+<!-- This template is designed to be simple and user-friendly, focusing on the essential elements needed for admin login. -->
+<!-- Make sure to include proper security measures on the server side to protect against unauthorized access. -->
+<!-- You can customize the styles further by modifying the Tailwind CSS classes or adding custom

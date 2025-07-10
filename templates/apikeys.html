@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Key Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 p-6">
+    <h1 class="text-2xl font-bold mb-4">Manage API Keys</h1>
+    <form method="POST" class="bg-white p-6 rounded shadow-md max-w-md">
+        <label class="block mb-2 font-medium">e32fd8d001b230c43f3a2f45ada44667090302448fe011c43c5d0996d3c5887b</label>
+        <input type="text" name="virustotal" value="{{ keys.virustotal }}" class="w-full px-3 py-2 border rounded mb-4">
+
+        <label class="block mb-2 font-medium">7531da70bf4476cf0f7bf6a93b438bc82319a97b675e10d7f5638b4d78cdee08</label>
+        <input type="text" name="otx" value="{{ keys.otx }}" class="w-full px-3 py-2 border rounded mb-4">
+
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update Keys</button>
+    </form>
+    <div class="mt-4">
+        <a href="/dashboard" class="text-blue-600 underline">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
+<!-- This template allows the admin to manage API keys for VirusTotal and OTX. It uses Tailwind CSS for styling and includes a form for updating the keys. -->
+<!-- The form submits a POST request to the server to update the keys. -->
+<!-- Ensure that the server-side code handles the key updates and provides appropriate feedback to the user. -->
+<!-- The template is designed to be simple and user-friendly, focusing on the essential elements needed for
