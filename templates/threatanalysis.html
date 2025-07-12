@@ -376,7 +376,6 @@
 
         <!-- Threat Analysis Section -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            {% block threat_analysis %}
             <!-- Threat Scanner -->
             <div class="bg-white shadow rounded-lg overflow-hidden">
                 <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
@@ -543,7 +542,6 @@
 
         <!-- Threat Feed -->
         <div class="bg-white shadow rounded-lg overflow-hidden mb-6">
-            {% block threat_feed %}
             <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
                 <div class="flex items-center justify-between">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -551,9 +549,6 @@
                     </h3>
                     <!-- Add your code here to show the list of threats -->
                     <ul>
-                      {% for threat in threats %}
-                        <li>{{ threat }}</li>
-                      {% endfor %}
                     </ul>
                     <div class="flex space-x-3">
                         <button class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
