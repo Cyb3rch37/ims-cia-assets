@@ -58,11 +58,6 @@ def logout():
     session.pop("admin", None)
     return redirect(url_for("login"))
 
-if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
-
 from datetime import datetime
 
 @app.route("/")
@@ -80,4 +75,11 @@ def threat_analysis():
         threats=["Ransomware", "DDoS", "Phishing"],
         actors=["APT29", "Lazarus Group"]
     )
+
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
 
