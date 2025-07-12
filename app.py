@@ -69,12 +69,9 @@ def index():
         year=datetime.now().year
     )
 
-@app.route("/threatanalysis")
+@app.route('/threat_analysis')
 def threat_analysis():
-    return render_template("threatanalysis.html", 
-        threats=["Ransomware", "DDoS", "Phishing"],
-        actors=["APT29", "Lazarus Group"]
-    )
+    return render_template('threatanalysis.html')
 
 
 if __name__ == "__main__":
