@@ -63,3 +63,21 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 
+from datetime import datetime
+
+@app.route("/")
+def index():
+    return render_template("index.html", 
+        welcome_title="Welcome to IMS-CIA",
+        welcome_text="Our mission is to safeguard digital frontiers through proactive intelligence and real-time threat analysis.",
+        threat_summary="All systems green. No major threats at the moment.",
+        year=datetime.now().year
+    )
+
+@app.route("/threatanalysis")
+def threat_analysis():
+    return render_template("threatanalysis.html", 
+        threats=["Ransomware", "DDoS", "Phishing"],
+        actors=["APT29", "Lazarus Group"]
+    )
+

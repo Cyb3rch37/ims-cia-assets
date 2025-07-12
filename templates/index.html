@@ -1,0 +1,946 @@
+
+{% endblock %}
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMS - Cyber Intelligence Agency | Next-Gen Threat Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary: #00f0ff;
+            --secondary: #0072ff;
+            --dark: #0a192f;
+            --darker: #020c1b;
+            --light: #ccd6f6;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .tech-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.7);
+        }
+        
+        .cyber-border {
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            position: relative;
+        }
+        
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: black;
+            overflow: hidden;
+        }
+        
+        .matrix-code {
+            color: rgba(0, 255, 0, 0.5);
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            white-space: nowrap;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--primary);
+            white-space: nowrap;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        .holographic-effect {
+            background: linear-gradient(145deg, 
+                rgba(0, 114, 255, 0.2) 0%, 
+                rgba(0, 240, 255, 0.2) 50%, 
+                rgba(0, 114, 255, 0.2) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="matrix-bg" id="matrix-bg"></div>
+    <div class="content-wrapper">
+        {% block content %}{% endblock %}
+    <!-- Top Alert Bar -->
+    <div class="bg-red-900 text-white py-2 px-4 flex items-center justify-between pulse">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="font-bold">ALERT:</span>
+            <span class="text-sm sm:text-base">New critical vulnerability detected in Apache Log4j (CVE-2023-12345)</span>
+        </div>
+        <a href="#" class="text-white hover:text-yellow-300 text-sm font-bold flex items-center">
+            Details <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+    </div>
+    
+    <!-- Header -->
+    <header class="gradient-bg sticky top-0 z-50 cyber-border">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="https://Cyb3rch37.github.io/ims-cia-assets/I.png" alt="IMS-CIA Logo" class="h-12 w-auto mr-2">
+                    <h1 class="tech-font text-2xl font-bold gradient-text">IMS - Cyber Intelligence Agency</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Threat Intelligence</a>
+                    <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Advisories</a>
+                    <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Alerts</a>
+                    <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Resources</a>
+                    <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium">About</a>
+                    <a href="threat.html" class="text-cyan-400 hover:text-white transition duration-300 font-medium">Threat Analysis</a>
+                </nav>
+               
+                <div class="flex items-center space-x-4">
+                    <button class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-4 py-2 rounded-md font-medium glow-hover transition duration-300">
+                        Report Incident
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden gradient-bg absolute left-0 right-0 px-4 pb-4 cyber-border">
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium py-2 border-b border-gray-800">Threat Intelligence</a>
+                <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium py-2 border-b border-gray-800">Advisories</a>
+                <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium py-2 border-b border-gray-800">Alerts</a>
+                <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium py-2 border-b border-gray-800">Resources</a>
+                <a href="#" class="text-white hover:text-cyan-400 transition duration-300 font-medium py-2">About</a>
+                <a href="threat.html" class="text-cyan-400 hover:text-white transition duration-300 font-medium py-2">Threat Analysis</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-90"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-70"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center mb-4">
+                    <span class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">LATEST THREAT</span>
+                    <span class="ml-3 text-sm text-cyan-300">Updated: June 15, 2025</span>
+                </div>
+                
+                <h1 class="tech-font text-4xl md:text-6xl font-bold text-white mb-4">
+                    <span class="gradient-text">APT29</span> Targets Global <span class="gradient-text">Cloud Infrastructure</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-8">
+                    Russian state-sponsored actors exploiting misconfigured cloud services to gain initial access to enterprise networks.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-md font-medium glow-hover transition duration-300 flex items-center">
+                        <i class="fas fa-file-alt mr-2"></i> Read Advisory
+                    </button>
+                    <button class="border border-cyan-400 hover:bg-cyan-900/30 text-white px-6 py-3 rounded-md font-medium transition duration-300 flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i> Mitigation Guide
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
+    </section>
+    
+    <!-- Threat Feed Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
+            <div>
+                <h2 class="tech-font text-3xl font-bold text-white mb-2">
+                    <span class="gradient-text">Live Threat</span> Intelligence Feed
+                </h2>
+                <p class="text-gray-400">Real-time cyber threat updates from our global monitoring network</p>
+            </div>
+            
+            <div class="mt-4 md:mt-0">
+                <div class="relative">
+                    <select class="bg-gray-900 border border-gray-700 text-white rounded-md px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <option>All Categories</option>
+                        <option>Vulnerabilities</option>
+                        <option>Malware</option>
+                        <option>APT Groups</option>
+                        <option>Phishing</option>
+                        <option>Ransomware</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Threat Card 1 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="h-48 bg-gradient-to-r from-purple-900/50 to-blue-900/50 flex items-center justify-center">
+                    <i class="fas fa-bug text-6xl text-purple-400"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="bg-red-900/70 text-red-300 text-xs font-bold px-2 py-1 rounded">CRITICAL</span>
+                        <span class="text-gray-400 text-sm">Jun 14, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">New Zero-Day in Microsoft Exchange</h3>
+                    <p class="text-gray-400 mb-4">Actively exploited vulnerability allows remote code execution without authentication...</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 text-cyan-300 text-xs px-2 py-1 rounded">CVE-2023-12345</span>
+                            <span class="bg-gray-800 text-purple-300 text-xs px-2 py-1 rounded">APT29</span>
+                        </div>
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Threat Card 2 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="h-48 bg-gradient-to-r from-yellow-900/50 to-red-900/50 flex items-center justify-center">
+                    <i class="fas fa-lock text-6xl text-yellow-400"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="bg-orange-900/70 text-orange-300 text-xs font-bold px-2 py-1 rounded">HIGH</span>
+                        <span class="text-gray-400 text-sm">Jun 12, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Lazarus Group Targets Crypto Wallets</h3>
+                    <p class="text-gray-400 mb-4">New malware campaign steals cryptocurrency by compromising browser extensions...</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 text-red-300 text-xs px-2 py-1 rounded">MALWARE</span>
+                            <span class="bg-gray-800 text-yellow-300 text-xs px-2 py-1 rounded">LAZARUS</span>
+                        </div>
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Threat Card 3 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="h-48 bg-gradient-to-r from-green-900/50 to-cyan-900/50 flex items-center justify-center">
+                    <i class="fas fa-envelope text-6xl text-green-400"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="bg-blue-900/70 text-blue-300 text-xs font-bold px-2 py-1 rounded">MODERATE</span>
+                        <span class="text-gray-400 text-sm">Jun 10, 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Phishing Campaign Mimics HR Software</h3>
+                    <p class="text-gray-400 mb-4">Attackers sending fake login pages for popular HR platforms to steal credentials...</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 text-green-300 text-xs px-2 py-1 rounded">PHISHING</span>
+                            <span class="bg-gray-800 text-blue-300 text-xs px-2 py-1 rounded">FIN7</span>
+                        </div>
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-10">
+            <button class="border border-cyan-400 hover:bg-cyan-900/30 text-white px-6 py-3 rounded-md font-medium transition duration-300 flex items-center mx-auto">
+                <i class="fas fa-sync-alt mr-2"></i> Load More Threats
+            </button>
+        </div>
+    </section>
+    
+    <!-- Critical Vulnerabilities Section -->
+    <section class="bg-gray-900/50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
+                <div>
+                    <h2 class="tech-font text-3xl font-bold text-white mb-2">
+                        <span class="gradient-text">Critical</span> Vulnerabilities
+                    </h2>
+                    <p class="text-gray-400">Recently disclosed vulnerabilities requiring immediate attention</p>
+                </div>
+                
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
+                        View All CVEs <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden">
+                <div class="overflow-x-auto scrollbar-hide">
+                    <table class="min-w-full divide-y divide-gray-800">
+                        <thead class="bg-gray-800/50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-cyan-300 uppercase tracking-wider">CVE ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-cyan-300 uppercase tracking-wider">Vulnerability</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-cyan-300 uppercase tracking-wider">Affected Products</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-cyan-300 uppercase tracking-wider">Severity</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-cyan-300 uppercase tracking-wider">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800">
+                            <tr class="hover:bg-gray-800/50 transition duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-white">CVE-2023-12345</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white font-medium">Remote Code Execution</div>
+                                    <div class="text-xs text-gray-400">Apache Log4j</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Log4j 2.0-beta9 - 2.14.1</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-red-900/70 text-red-300 rounded-full">CRITICAL 9.8</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-yellow-900/70 text-yellow-300 rounded-full">PATCH AVAILABLE</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-800/50 transition duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-white">CVE-2023-23456</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white font-medium">Privilege Escalation</div>
+                                    <div class="text-xs text-gray-400">Windows Kernel</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Windows 10/11, Server 2019/2022</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-orange-900/70 text-orange-300 rounded-full">HIGH 8.8</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-green-900/70 text-green-300 rounded-full">PATCHED</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-800/50 transition duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-white">CVE-2023-34567</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white font-medium">Memory Corruption</div>
+                                    <div class="text-xs text-gray-400">Google Chrome</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Chrome ≤ 114.0.5735.110</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-red-900/70 text-red-300 rounded-full">CRITICAL 9.1</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-yellow-900/70 text-yellow-300 rounded-full">UPDATE AVAILABLE</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-800/50 transition duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-white">CVE-2023-45678</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white font-medium">SQL Injection</div>
+                                    <div class="text-xs text-gray-400">WordPress</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">WordPress ≤ 6.1.1</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-orange-900/70 text-orange-300 rounded-full">HIGH 7.5</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs font-bold bg-green-900/70 text-green-300 rounded-full">PATCHED</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Threat Actors Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
+            <div>
+                <h2 class="tech-font text-3xl font-bold text-white mb-2">
+                    <span class="gradient-text">Active Threat</span> Actors
+                </h2>
+                <p class="text-gray-400">Advanced persistent threat groups currently targeting organizations</p>
+            </div>
+            
+            <div class="mt-4 md:mt-0">
+                <div class="relative">
+                    <select class="bg-gray-900 border border-gray-700 text-white rounded-md px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <option>All Regions</option>
+                        <option>Russia</option>
+                        <option>China</option>
+                        <option>North Korea</option>
+                        <option>Iran</option>
+                        <option>Other</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- APT Card 1 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-900 to-red-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-secret text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">APT29</h3>
+                            <p class="text-gray-400 text-sm">Cozy Bear</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Origin:</span>
+                            <span class="text-white">Russia</span>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Targets:</span>
+                            <span class="text-white">Government, Tech</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Activity:</span>
+                            <span class="text-red-400 font-bold">High</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-800 text-red-300 text-xs px-2 py-1 rounded">CLOUD</span>
+                            <span class="bg-gray-800 text-blue-300 text-xs px-2 py-1 rounded">ESPIONAGE</span>
+                            <span class="bg-gray-800 text-purple-300 text-xs px-2 py-1 rounded">ZERO-DAYS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- APT Card 2 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-900 to-yellow-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-secret text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Lazarus Group</h3>
+                            <p class="text-gray-400 text-sm">Hidden Cobra</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Origin:</span>
+                            <span class="text-white">North Korea</span>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Targets:</span>
+                            <span class="text-white">Finance, Crypto</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Activity:</span>
+                            <span class="text-red-400 font-bold">High</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-800 text-yellow-300 text-xs px-2 py-1 rounded">MALWARE</span>
+                            <span class="bg-gray-800 text-green-300 text-xs px-2 py-1 rounded">FINANCIAL</span>
+                            <span class="bg-gray-800 text-pink-300 text-xs px-2 py-1 rounded">RANSOMWARE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- APT Card 3 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-900 to-blue-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-secret text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">APT41</h3>
+                            <p class="text-gray-400 text-sm">Double Dragon</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Origin:</span>
+                            <span class="text-white">China</span>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Targets:</span>
+                            <span class="text-white">Healthcare, Gaming</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Activity:</span>
+                            <span class="text-orange-400 font-bold">Moderate</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-800 text-blue-300 text-xs px-2 py-1 rounded">SUPPLY CHAIN</span>
+                            <span class="bg-gray-800 text-purple-300 text-xs px-2 py-1 rounded">ESPIONAGE</span>
+                            <span class="bg-gray-800 text-red-300 text-xs px-2 py-1 rounded">CYBERCRIME</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- APT Card 4 -->
+            <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-900 to-green-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-secret text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">FIN7</h3>
+                            <p class="text-gray-400 text-sm">Carbanak Group</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Origin:</span>
+                            <span class="text-white">Russia</span>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Targets:</span>
+                            <span class="text-white">Retail, Hospitality</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Activity:</span>
+                            <span class="text-orange-400 font-bold">Moderate</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-800 text-green-300 text-xs px-2 py-1 rounded">FINANCIAL</span>
+                            <span class="bg-gray-800 text-yellow-300 text-xs px-2 py-1 rounded">POINT OF SALE</span>
+                            <span class="bg-gray-800 text-pink-300 text-xs px-2 py-1 rounded">MALWARE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Section -->
+    <section class="bg-gray-900/50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="tech-font text-3xl font-bold text-white mb-2">
+                    <span class="gradient-text">Cyber Defense</span> Resources
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Tools and guidance to help organizations improve their cybersecurity posture</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Resource Card 1 -->
+                <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300 h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center mb-4">
+                            <i class="fas fa-check-double text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Secure Configuration Guides</h3>
+                        <p class="text-gray-400 mb-4">Step-by-step instructions for securely configuring enterprise software and devices to prevent common vulnerabilities.</p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
+                            Access Guides <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resource Card 2 -->
+                <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300 h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center mb-4">
+                            <i class="fas fa-project-diagram text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Threat Modeling Toolkit</h3>
+                        <p class="text-gray-400 mb-4">Framework and templates to help organizations identify potential threats and vulnerabilities in their systems.</p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
+                            Download Toolkit <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resource Card 3 -->
+                <div class="bg-gray-900/80 rounded-xl cyber-border overflow-hidden hover:glow transition duration-300 h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-600 to-orange-500 flex items-center justify-center mb-4">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Security Training</h3>
+                        <p class="text-gray-400 mb-4">Free online courses and training materials to educate employees about cybersecurity best practices.</p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
+                            Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-xl cyber-border overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <div class="p-8 md:p-12 flex flex-col justify-center">
+                    <h2 class="tech-font text-3xl font-bold text-white mb-4">
+                        <span class="gradient-text">Stay Updated</span> with Threat Intelligence
+                    </h2>
+                    <p class="text-gray-300 mb-6">Subscribe to our weekly threat intelligence newsletter to receive the latest security advisories, vulnerability alerts, and threat actor activity reports directly to your inbox.</p>
+                    
+                    <form class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Your email address" class="flex-grow bg-gray-900/70 border border-gray-700 text-white rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <button type="submit" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-md font-medium glow-hover transition duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                    
+                    <p class="text-gray-400 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+                
+                <div class="hidden lg:flex items-center justify-center p-8 bg-gradient-to-br from-blue-900/20 to-cyan-900/20">
+                    <div class="relative">
+                        <div class="w-64 h-64 rounded-full bg-gradient-to-br from-blue-600/20 to-cyan-500/20 flex items-center justify-center">
+                            <div class="w-48 h-48 rounded-full bg-gradient-to-br from-blue-600/30 to-cyan-500/30 flex items-center justify-center">
+                                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-blue-600/40 to-cyan-500/40 flex items-center justify-center">
+                                    <i class="fas fa-envelope-open-text text-4xl text-cyan-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-4 -left-4 w-24 h-24 rounded-full bg-purple-500/20 blur-xl"></div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-blue-500/20 blur-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900/80 border-t border-gray-800">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-400 flex items-center justify-center glow">
+                            <i class="fas fa-eye text-white"></i>
+                        </div>
+                        <h3 class="tech-font text-xl font-bold gradient-text">IMS - CIA</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Advanced threat intelligence platform providing real-time cybersecurity alerts and analysis.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Threat Dashboard</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Vulnerability Database</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">APT Groups</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Malware Analysis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Incident Response</a></li>
+                        <li><a href="threat.html" class="text-cyan-400 hover:text-white transition duration-300">Threat Analysis</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Security Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Training</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">Research Papers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-300">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2 text-cyan-400"></i> intel@ims-cia.org
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-2 text-cyan-400"></i> +1 (555) 123-4567
+                        </li>
+                        <li class="flex items-start text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1 text-cyan-400"></i> 
+                            <span>1600 Amphitheatre Parkway<br>Mountain View, CA 94043</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 IMS Cyber Intelligence Agency. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-cyan-400 text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-cyan-400 text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-cyan-400 text-sm transition duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 text-white flex items-center justify-center shadow-lg glow hover:glow-hover transition duration-300">
+            <i class="fas fa-robot text-xl"></i>
+        </button>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Typewriter effect for hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelector('.typewriter').style.borderRight = 'none';
+            }, 3500);
+        });
+        
+        // Simulate real-time threat updates
+        function updateThreatFeed() {
+            const threats = [
+                {
+                    title: "New Phishing Campaign Targets Office 365 Users",
+                    description: "Attackers using fake MFA prompts to steal credentials from enterprise accounts...",
+                    date: "Just now",
+                    tags: ["PHISHING", "OFFICE365"]
+                },
+                {
+                    title: "Ransomware Attack on Healthcare Provider",
+                    description: "Patient data encrypted, attackers demanding 5 million USD in Bitcoin...",
+                    date: "2 minutes ago",
+                    tags: ["RANSOMWARE", "HEALTHCARE"]
+                },
+                {
+                    title: "Zero-Day in VPN Appliances Being Exploited",
+                    description: "Unpatched vulnerability allows remote access to corporate networks...",
+                    date: "5 minutes ago",
+                    tags: ["ZERO-DAY", "VPN"]
+                }
+            ];
+            
+            const feedContainer = document.createElement('div');
+            feedContainer.className = 'absolute top-0 left-0 right-0 bg-gray-900/90 text-white p-4 cyber-border-b';
+            
+            const threat = threats[Math.floor(Math.random() * threats.length)];
+            
+            feedContainer.innerHTML = `
+                <div class="container mx-auto flex justify-between items-center">
+                    <div>
+                        <div class="flex items-center">
+                            <span class="bg-red-900/70 text-red-300 text-xs font-bold px-2 py-1 rounded mr-3">LIVE</span>
+                            <span class="text-sm text-cyan-300">${threat.date}</span>
+                        </div>
+                        <h3 class="text-sm font-medium mt-1">${threat.title}</h3>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex space-x-2">
+                            ${threat.tags.map(tag => `<span class="bg-gray-800 text-xs px-2 py-1 rounded">${tag}</span>`).join('')}
+                        </div>
+                        <button class="text-cyan-400 hover:text-cyan-300">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add click event to close the notification
+            feedContainer.querySelector('button').addEventListener('click', function() {
+                feedContainer.remove();
+            });
+            
+            document.body.prepend(feedContainer);
+            
+            // Remove after 10 seconds
+            setTimeout(() => {
+                if (document.body.contains(feedContainer)) {
+                    feedContainer.remove();
+                }
+            }, 10000);
+        }
+        
+        // Simulate periodic threat updates
+        setInterval(updateThreatFeed, 15000);
+        
+        // Initial update after 3 seconds
+        setTimeout(updateThreatFeed, 3000);
+        
+        // Matrix background effect
+        function createMatrix() {
+            const matrixBg = document.getElementById('matrix-bg');
+            const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+            
+            const fontSize = 16;
+            const columns = Math.floor(window.innerWidth / fontSize);
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-code';
+                column.style.left = `${i * fontSize}px`;
+                column.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                
+                let text = '';
+                const length = Math.floor(Math.random() * 20) + 10;
+                for (let j = 0; j < length; j++) {
+                    text += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                
+                column.textContent = text;
+                matrixBg.appendChild(column);
+            }
+        }
+        
+        window.addEventListener('load', createMatrix);
+        window.addEventListener('resize', function() {
+            const matrixBg = document.getElementById('matrix-bg');
+            matrixBg.innerHTML = '';
+            createMatrix();
+        });
+    </script>
+    </div>
+</body>
+</html>
